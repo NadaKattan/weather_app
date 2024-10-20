@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
-import 'package:weather_app/models/weather_model.dart';
+
 
 class WeatherBody extends StatelessWidget {
   const WeatherBody({super.key});
@@ -20,7 +20,7 @@ class WeatherBody extends StatelessWidget {
         children: [
           Text(
             weatherModel.city,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
+            style:const TextStyle(fontWeight: FontWeight.bold, fontSize: 32),
           ),
           Text(
               "updated at ${weatherModel.date.hour}:${weatherModel.date.minute}"),
