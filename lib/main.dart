@@ -19,12 +19,20 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Weather App',
+        theme:ThemeData.dark(
+            // colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber,),
+          // useMaterial3: true,
+        ),
         routes: {
           HomeView.routeName: (_) => const HomeView(),
           SearchView.routeName: (_) => const SearchView(),
         },
         initialRoute: HomeView.routeName,
+        // home: HomeView(),
       ),
     );
   }
+}
+getThemeColor(){
+
 }

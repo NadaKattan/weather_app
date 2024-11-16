@@ -12,18 +12,19 @@ class SearchView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.blue,
+        // foregroundColor: Colors.white,
+        // backgroundColor: Colors.blue,
         title: const Text("Search City",style: TextStyle(color: Colors.white),),),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Center(
           heightFactor: 20/3,
           child: TextField(
-            onSubmitted: (value) async{
+            onSubmitted: (value){
               // print(value);
-              BlocProvider.of<GetWeatherCubit>(context).getCurrentWeather(value);
-              Navigator.of(context).pushNamed(HomeView.routeName);
+                BlocProvider.of<GetWeatherCubit>(context)
+                      .getCurrentWeather(value);
+                Navigator.of(context).pushNamed(HomeView.routeName);
             },
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(horizontal: 25,vertical: 25),

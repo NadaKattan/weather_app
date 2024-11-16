@@ -4,7 +4,6 @@ import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather_app/cubits/get_weather_cubit/get_weather_states.dart';
 import 'package:weather_app/no_weather_body.dart';
 import 'package:weather_app/views/search_view.dart';
-
 import '../weather_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -14,7 +13,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        // backgroundColor: Colors.blue,
         title: const Padding(
           padding: EdgeInsets.all(16),
           child: Text(
@@ -36,10 +35,13 @@ class HomeView extends StatelessWidget {
         builder: (context, state) {
           if (state is WeatherInitialState) {
             return const NoWeatherBody();
-          } else if (state is WeatherSuccessState) {
+          } else if (state is WeatherLoadingState) {
+            return const Center(child: CircularProgressIndicator(),);
+          }
+          else if (state is WeatherSuccessState) {
             return const WeatherBody();
           } else {
-            return const Text("oops, there is an error");
+            return const Center(child: Text("oops, there is an error"));
           }
         },
       ),
